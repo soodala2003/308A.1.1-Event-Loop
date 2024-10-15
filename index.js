@@ -3,7 +3,7 @@ const textEl = document.querySelector("p");
 const num = 10000;
 
 heading.innerText = `Prime numbers between 1 and ${num} :`; 
-textEl.innerText = primeLists(num);
+textEl.innerText = primeLists(num); 
 
 function isPrime(n, divisor) {
     try {
@@ -23,14 +23,18 @@ function isPrime(n, divisor) {
         console.log(n);
     }
 } 
-    
+
 function primeLists(n) {
     let primeNumArr = [];
     let divisor = 2;
+    
     for (let i = 1; i <= n; i++) {
         if (isPrime(i, divisor) === true) {
-            primeNumArr.push(i);
-        } 
+            setTimeout(function() {
+                primeNumArr.push(i);
+                textEl.innerText = primeNumArr;
+            }, 500); 
+        }
     }
     alert("Calaulation is Done!");
     return primeNumArr;
